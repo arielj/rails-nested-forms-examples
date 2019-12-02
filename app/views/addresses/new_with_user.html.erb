@@ -14,6 +14,15 @@
 
     <div>
       <h3>User fields</h3>
+
+      <%
+        # this works just like `fields_for`, I just use `simple_fields_for` for convenience when showing the inputs
+
+        # you can use "f.fields_for :address, include_id: false do |fa|" if you don't use simple_form
+
+        # added "include_id: false" so the form does not include the ID
+        # it's not needed in this case, check model config "update_only: true"
+      %>
       <%= f.simple_fields_for :user, include_id: false do |fu| %>
         <%= fu.input :name %>
         <%= fu.input :lastname %>

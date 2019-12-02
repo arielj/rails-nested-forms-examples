@@ -2,6 +2,14 @@
 
 <div>
   <h3>Address fields</h3>
+  <%
+    # this works just like `fields_for`, I just use `simple_fields_for` for convenience
+
+    # you can use "f.fields_for :address, include_id: false do |fa|" if you don't use simple_form
+
+    # added "include_id: false" so the form does not include the ID
+    # it's not needed in this case, check model config "update_only: true"
+  %>
   <%= f.simple_fields_for :address, include_id: false do |fa| %>
     <%= fa.input :street %>
     <%= fa.input :number %>

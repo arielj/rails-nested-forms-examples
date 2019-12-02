@@ -19,6 +19,12 @@ Tools I'm using:
 * simple_form gem to handle form inputs
 * vanilla_nested gem to handle dynamic add/remove nested fields (not yet)
 
+
+## Disclaimer
+
+I'm using *simple_form* gem for the forms just so the input fields are not distracting from the actual important code that is the `fields_for` method. You'll see `simple_fields_for` on the code, but it works just the same as `fields_for`, it's only so I have access to simple_form helpers (error messages, markup, etc). You can simply replace `simple_fields_for` with `fields_for` instead if you don't use that gem and everything else is the same.
+
+
 ### Examples
 #### One-to-One
 

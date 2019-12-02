@@ -5,6 +5,35 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create user_params
+
+    if @user.persisted?
+      redirect_to @user
+    else
+      render action: :new
+    end
+  end
+
+  def edit
+    load_user
+  end
+
+  def update
+    load_user
+    @user.attributes = user_params
+
+    if @user.save
+      redirect_to @user
+    else
+      render action: :edit
+    end
+  end
+
   def new_with_address
     @user = User.new
 
@@ -46,6 +75,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:name, :lastname, :email)
+  end
 
   def user_with_address_params
     params.require(:user)

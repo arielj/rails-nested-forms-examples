@@ -1,7 +1,4 @@
-<h3>User fields</h3>
-<%= f.input :name %>
-<%= f.input :lastname %>
-<%= f.input :email %>
+<%= render partial: 'form_fields', locals: { f: f } %>
 
 <div>
   <h3>Address fields</h3>

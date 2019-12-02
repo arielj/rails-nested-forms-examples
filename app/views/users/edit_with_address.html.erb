@@ -10,6 +10,8 @@
 
 
 <%= simple_form_for @user, url: url_for(action: :update_with_address), html: {class: 'user_form_with_address'} do |f| %>
-  <%= render partial: 'form_fields_with_address', locals: { f: f } %>
+  <fieldset>
+    <%= render partial: 'form_fields_with_address', locals: { f: f } %>
+  </fieldset>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

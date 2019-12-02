@@ -1,0 +1,8 @@
+<h1>New User without nested Address</h1>
+
+<%= simple_form_for @user, html: {class: 'user_form'} do |f| %>
+  <fieldset>
+    <%= render partial: 'form_fields', locals: { f: f } %>
+  </fieldset>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

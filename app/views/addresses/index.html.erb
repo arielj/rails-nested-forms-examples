@@ -1,0 +1,14 @@
+<h1>Addresses</h1>
+
+<%= link_to 'New address', new_address_path, class: 'btn btn-primary' %>
+<%= link_to 'New address with user', new_with_user_addresses_path, class: 'btn btn-primary' %>
+<br />
+<br />
+<h3>List</h3>
+<ul>
+  <% @addresses.each do |address| %>
+    <li>
+      <%= link_to address.to_label, address %>
+    </li>
+  <% end %>
+</ul>

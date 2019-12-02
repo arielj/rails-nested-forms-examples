@@ -1,0 +1,16 @@
+<div>
+  <b>Name:</b> <span><%= @user.name %></span>
+</div>
+<div>
+  <b>Lastname:</b> <span><%= @user.lastname %></span>
+</div>
+<div>
+  <b>Email:</b> <span><%= @user.email %></span>
+</div>
+<div>
+  <b>Address:</b> <span><%= @user.address&.to_label %></span>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+<br />
+<%= link_to 'Edit with address', edit_with_address_user_path(@user) %>

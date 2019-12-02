@@ -1,0 +1,13 @@
+<h3>User fields</h3>
+<%= f.input :name %>
+<%= f.input :lastname %>
+<%= f.input :email %>
+
+<div>
+  <h3>Address fields</h3>
+  <%= f.simple_fields_for :address, include_id: false do |fa| %>
+    <%= fa.input :street %>
+    <%= fa.input :number %>
+    <%= fa.input :zip_code %>
+  <% end %>
+</div>

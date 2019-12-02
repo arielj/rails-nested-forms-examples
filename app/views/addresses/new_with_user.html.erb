@@ -1,0 +1,24 @@
+<h1>New Address with nested User</h1>
+
+<p>
+  You can create nested forms using as the main object any of the objects, it doesn't
+  matter which one `has_one` and which one `belongs_to`.
+</p>
+
+<%= simple_form_for @address, url: url_for(action: :create_with_user), html: {class: 'address_form_with_user'} do |f| %>
+  <h3>Address fields</h3>
+  <%= f.input :street %>
+  <%= f.input :number %>
+  <%= f.input :zip_code %>
+
+  <div>
+    <h3>User fields</h3>
+    <%= f.simple_fields_for :user, include_id: false do |fu| %>
+      <%= fu.input :name %>
+      <%= fu.input :lastname %>
+      <%= fu.input :email %>
+    <% end %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

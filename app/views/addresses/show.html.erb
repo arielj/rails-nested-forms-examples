@@ -1,0 +1,16 @@
+<div>
+  <b>Street:</b> <span><%= @address.street %></span>
+</div>
+<div>
+  <b>Number:</b> <span><%= @address.number %></span>
+</div>
+<div>
+  <b>Zip code:</b> <span><%= @address.zip_code %></span>
+</div>
+<div>
+  <b>User:</b> <span><%= @address.user.to_label %></span>
+</div>
+
+<%= link_to 'Edit', edit_address_path(@address) %>
+<br />
+<%= link_to 'Edit with user', edit_with_user_address_path(@address) %>

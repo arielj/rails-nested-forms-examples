@@ -1,0 +1,11 @@
+<h1>New User with nested Address</h1>
+
+<p>
+  This forms shows how to handle a one-to-one association to create both objects at the same time
+  using ActiveRecord's accepts_nested_attributes_for and the fields_for form helper method.
+</p>
+
+<%= simple_form_for @user, url: url_for(action: :create_with_address), html: {class: 'user_form_with_address'} do |f| %>
+  <%= render partial: 'form_fields_with_address', locals: { f: f } %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

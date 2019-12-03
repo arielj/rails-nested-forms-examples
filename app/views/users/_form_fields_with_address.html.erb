@@ -11,8 +11,6 @@
     # it's not needed in this case, check model config "update_only: true"
   %>
   <%= f.simple_fields_for :address, include_id: false do |fa| %>
-    <%= fa.input :street %>
-    <%= fa.input :number %>
-    <%= fa.input :zip_code %>
+    <%= render partial: 'address_fields', locals: { f: fa } %>
   <% end %>
 </div>

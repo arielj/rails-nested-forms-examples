@@ -11,22 +11,14 @@
     # it's not needed in this case, check model config "update_only: true"
   %>
   <%= f.simple_fields_for :address, include_id: false do |fa| %>
-    <%= fa.input :street %>
-    <%= fa.input :number %>
-    <%= fa.input :zip_code %>
+    <%= render partial: 'address_fields', locals: { f: fa } %>
   <% end %>
 </div>
 
 <div>
   <h3>Pets fields</h3>
   <%= f.simple_fields_for :pets do |fp| %>
-    <%= fp.input :name %>
-    <%= fp.input :species %>
-
-    <% if fp.object.persisted? %>
-      <%= fp.input :_destroy, as: :boolean, label: 'Destroy' %>
-    <% end %>
-
+    <%= render partial: 'pet_fields', locals: { f: fp } %>
     <br />
   <% end %>
   <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>

@@ -33,6 +33,12 @@ First example is a tipical one-to-one User <-> Address association. Models confi
 
 #### One-to-Many (model1 has_many model2, model2 belongs_to model1)
 
+Second example is a tipical one-to-many User <-> Pet(s) association. There are two variantes of this:
+* fixed number of pets (always show the same amount of nested elements)
+* variable number of pets ("add pet" button)
+
+Bonus example: you can combine both example 1 and 2 in a single form and update the user, the address and a variable number of pets with a single form and a single call to `attributes = ....` on the controller!
+
 
 #### One-to-Many Through (model1 belongs_to model2, model2 has_many model3, model1 has_many model3 through model2)
 

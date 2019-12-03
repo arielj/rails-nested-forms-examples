@@ -6,6 +6,9 @@ class User < ApplicationRecord
   # using update_only: true, we want to edit the current address, don't replace it
   accepts_nested_attributes_for :address, update_only: true
 
+  has_many :pets
+  accepts_nested_attributes_for :pets, allow_destroy: true, reject_if: :all_blank
+
   validates :name, :lastname, :email, presence: true
 
   def to_label

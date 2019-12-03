@@ -1,0 +1,16 @@
+<%= render partial: 'form_fields', locals: { f: f } %>
+
+<div>
+  <h3>Pets fields</h3>
+  <%= f.simple_fields_for :pets do |fp| %>
+    <%= fp.input :name %>
+    <%= fp.input :species %>
+
+    <% if fp.object.persisted? %>
+      <%= fp.input :_destroy, as: :boolean, label: 'Destroy' %>
+    <% end %>
+
+    <br />
+  <% end %>
+  <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>
+</div>

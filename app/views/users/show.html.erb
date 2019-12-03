@@ -10,7 +10,21 @@
 <div>
   <b>Address:</b> <span><%= @user.address&.to_label %></span>
 </div>
+<div>
+  <b>Pets:</b>
+  <ul>
+    <% @user.pets.each do |pet| %>
+      <li><%= pet.to_label %></span>
+    <% end %>
+  </ul>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 <br />
 <%= link_to 'Edit with address', edit_with_address_user_path(@user) %>
+<br />
+<%= link_to 'Edit with pets', edit_with_pets_user_path(@user) %>
+<br />
+<%= link_to 'Edit with variable pets', edit_with_variable_pets_user_path(@user) %>
+<br />
+<%= link_to 'Edit with address and variable pets', edit_with_address_and_pets_user_path(@user) %>

@@ -1,0 +1,17 @@
+<h1>Edit User with nested Pets</h1>
+
+<p>
+  This forms shows how to handle a one-to-one association to update both objects at the same time
+  using ActiveRecord's accepts_nested_attributes_for and the fields_for form helper method.
+
+  Note create and edit form both shares the same inputs. For this to work, we build the association
+  on the "new" action so it always has an address to nest.
+</p>
+
+
+<%= simple_form_for @user, url: url_for(action: :update_with_pets), html: {class: 'user_form_with_pets'} do |f| %>
+  <fieldset>
+    <%= render partial: 'form_fields_with_pets', locals: { f: f } %>
+  </fieldset>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

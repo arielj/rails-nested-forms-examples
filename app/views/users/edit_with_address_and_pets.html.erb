@@ -1,0 +1,8 @@
+<h1>Edit User with the Address and the pets</h1>
+
+<%= simple_form_for @user, url: url_for(action: :update_with_address_and_pets), html: {class: 'user_form_with_address_and_pets'} do |f| %>
+  <fieldset>
+    <%= render partial: 'form_fields_with_address_and_pets', locals: { f: f } %>
+  </fieldset>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

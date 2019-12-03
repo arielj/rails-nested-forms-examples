@@ -1,0 +1,12 @@
+<h1>New User with nested Address and also variable number of pets</h1>
+
+<p>
+  This forms shows how to handle a one-to-one and a one-to-many associations on a single form.
+</p>
+
+<%= simple_form_for @user, url: url_for(action: :create_with_address_and_pets), html: {class: 'user_form_with_address_and_pets'} do |f| %>
+  <fieldset>
+    <%= render partial: 'form_fields_with_address_and_pets', locals: { f: f } %>
+  </fieldset>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

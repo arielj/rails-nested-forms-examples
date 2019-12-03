@@ -1,0 +1,33 @@
+<%= render partial: 'form_fields', locals: { f: f } %>
+
+<div>
+  <h3>Address fields</h3>
+  <%
+    # this works just like `fields_for`, I just use `simple_fields_for` for convenience
+
+    # you can use "f.fields_for :address, include_id: false do |fa|" if you don't use simple_form
+
+    # added "include_id: false" so the form does not include the ID
+    # it's not needed in this case, check model config "update_only: true"
+  %>
+  <%= f.simple_fields_for :address, include_id: false do |fa| %>
+    <%= fa.input :street %>
+    <%= fa.input :number %>
+    <%= fa.input :zip_code %>
+  <% end %>
+</div>
+
+<div>
+  <h3>Pets fields</h3>
+  <%= f.simple_fields_for :pets do |fp| %>
+    <%= fp.input :name %>
+    <%= fp.input :species %>
+
+    <% if fp.object.persisted? %>
+      <%= fp.input :_destroy, as: :boolean, label: 'Destroy' %>
+    <% end %>
+
+    <br />
+  <% end %>
+  <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>
+</div>

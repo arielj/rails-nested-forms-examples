@@ -12,10 +12,12 @@ Add '?dymanic_form=1' to the url to test dynamic nested form fields
     <% end %>
   </div>
 
-  <% if params[:dynamic_form] == '1' %>
-    <%= link_to_add_nested(f, :pets, '#nested_pets', partial_form_variable: :f) %>
-  <% else %>
-    <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>
+  <% unless f.object.pets_limit_reached? %>
+    <% if params[:dynamic_form] == '1' %>
+      <%= link_to_add_nested(f, :pets, '#nested_pets', partial_form_variable: :f) %>
+    <% else %>
+      <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>
+    <% end %>
   <% end %>
 
 </div>

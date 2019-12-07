@@ -134,7 +134,7 @@ class UsersController < ApplicationController
     @user = User.new user_with_pets_params
 
     if params[:commit] == 'add_pet'
-      @user.pets.build
+      @user.build_pet_with_limit
       render action: :new_with_variable_pets
     else
       if @user.save
@@ -150,7 +150,7 @@ class UsersController < ApplicationController
     @user.attributes = user_with_pets_params
 
     if params[:commit] == 'add_pet'
-      @user.pets.build
+      @user.build_pet_with_limit
       render action: :edit_with_variable_pets
     else
       if @user.save
@@ -182,7 +182,7 @@ class UsersController < ApplicationController
     @user = User.new user_with_address_and_pets_params
 
     if params[:commit] == 'add_pet'
-      @user.pets.build
+      @user.build_pet_with_limit
       render action: :new_with_address_and_pets
     else
       if @user.save
@@ -198,7 +198,7 @@ class UsersController < ApplicationController
     @user.attributes = user_with_address_and_pets_params
 
     if params[:commit] == 'add_pet'
-      @user.pets.build
+      @user.build_pet_with_limit
       render action: :edit_with_address_and_pets
     else
       if @user.save

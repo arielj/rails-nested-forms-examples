@@ -7,7 +7,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address, update_only: true
 
   has_many :pets
-  accepts_nested_attributes_for :pets, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :pets, allow_destroy: true, reject_if: :all_blank #, limit: 2
 
   validates :name, :lastname, :email, presence: true
 

@@ -1,10 +1,21 @@
+<div class='bg-success'>
+Add '?dymanic_form=1' to the url to test dynamic nested form fields
+</div>
+
 <%= render partial: 'form_fields', locals: { f: f } %>
 
 <div>
   <h3>Pets fields</h3>
-  <%= f.simple_fields_for :pets do |fp| %>
-    <%= render partial: 'pet_fields', locals: { f: fp } %>
-    <br />
+  <div id='nested_pets'>
+    <%= f.simple_fields_for :pets do |fp| %>
+      <%= render partial: 'pet_fields', locals: { f: fp } %>
+    <% end %>
+  </div>
+
+  <% if params[:dynamic_form] == '1' %>
+    <%= link_to_add_nested(f, :pets, '#nested_pets', partial_form_variable: :f) %>
+  <% else %>
+    <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>
   <% end %>
-  <%= button_tag 'Add pet', type: 'submit', name: 'commit', value: 'add_pet' %>
+
 </div>

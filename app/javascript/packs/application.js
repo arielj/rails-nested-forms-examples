@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../vanilla_nested")
+require("vanilla-nested")
 
 document.addEventListener('vanilla-nested:fields-limit-reached', function(e) {
   alert('Limit reached: ' + e.detail.triggeredBy.dataset.limit);
